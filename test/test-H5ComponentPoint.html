@@ -1,0 +1,55 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="../css/H5ComponentPoint.css">
+	<!-- 基本资源 -->
+	<script src="../js/lib/jquery.js"></script>
+	<script src="../js/lib/jquery-ui.min.js"></script>
+	<script src="../js/lib/jquery.fullpage.js"></script>
+	<script src="../js/H5ComponentBase.js"></script>
+
+	<!-- 散点图组件资源 -->
+	<script src="../js/H5ComponentPoint.js"></script>
+</head>
+<body>
+	<!--用于开发测试 H5ComponentPoint 对象（散点图组件）-->
+	<div class="phone">
+		
+	</div>
+	<script>
+		$(function(){
+			var cfg = {
+				type: 'point',
+				width: 300,
+				height: 300,
+				// text: 'test H5ComponentPoint',
+				// bg: '../images/p1_people.png',
+				name: 'myName',
+				css: {
+					bottom: 0,
+					opacity: 0
+				},
+				animateIn:{
+					bottom: '40%',
+					opacity: 1
+				},
+				animateOut:{
+					bottom: 0,
+					opacity: 0
+				},
+				center: true,
+				data:[
+					['A项',.4,'blue'],
+					['B项',.2,'red','25%','-80%'],
+					['C项',.2,'yellow',0,'120%'],
+				],
+			};
+			var h5 = new H5ComponentPoint(cfg);
+			$('.phone').append(h5);
+
+		})
+	</script>
+		
+</body>
+</html>

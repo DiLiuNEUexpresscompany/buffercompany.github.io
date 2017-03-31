@@ -1,0 +1,23 @@
+/*基本图文组件对象*/
+body{
+	margin: 0;
+	padding: 0;
+	background: #000;
+}
+.phone{
+	width: 340px;
+	height: 540px;
+	background: #fff;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-top: -270px;
+	margin-left: -170px;
+}
+.h5_component{
+	background-size: 100%;
+	background-repeat: no-repeat;
+	position: absolute;
+	-webkit-transition: all 0.3s;
+	transition: all 0.3s;
+}
