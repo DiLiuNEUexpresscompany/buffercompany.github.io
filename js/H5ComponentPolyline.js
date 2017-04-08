@@ -115,7 +115,7 @@ var H5ComponentPolyline = function(cfg){
 
 	//数据退场动画
 	component.on('onLeave',function(){
-		var s = 0;
+		var s = 1;
 		//闭包写法
 		for (var i = 0; i < 100; i++) {
 			setTimeout(function(){

@@ -1,8 +1,8 @@
 /*基本图文组件对象*/
-body{
-	margin: 0;
-	padding: 0;
-}
+// body{
+// 	margin: 0;
+// 	padding: 0;
+// }
 .h5_component .point{
 	position: absolute;
 	border-radius: 50%;

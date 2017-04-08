@@ -21,7 +21,7 @@
 	-webkit-transition: all 0.3s;
 	transition: all 0.3s;
 }
-.h5_component_polyline canvas{
+.h5_component_radar canvas{
 	position: absolute;
 	left: 0;
 	top: 0;
@@ -29,15 +29,8 @@
 	height: 100%;
 	// background-color: #eee;
 }
-.h5_component_polyline .text{
+.h5_component_radar .text{
 	position: absolute;
-	font-size: 10px;
-	text-align: center;
-	transition: all 0.5s 1.8s;
-}
-.h5_component_polyline_leave .text{
+	font-size: 12px;
 	opacity: 0;
-}
-.h5_component_polyline_load .text{
-	opacity: 1;
 }

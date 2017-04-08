@@ -44,7 +44,7 @@ var H5 = function(){
 		page.append( component );
 		return this;
 	}
-	this.loader = function(){
+	this.loader = function( index ){
 		this.el.fullpage({
 			onLeave:function(index, nextIndex, direction){
 				$(this).find('.h5_component').trigger('onLeave');//出发h5_component下面的onLeave事件
@@ -58,6 +58,9 @@ var H5 = function(){
 		// console.log(this.currentPage[0].find('.h5_component'))
 		this.page[0].find('.h5_component').trigger('onLoad');
 		this.el.show();
+		if( index ){
+			$.fn.fullpage.moveTo( index );// 页面载入指定页面
+		}
 		return this;
 	}
 }

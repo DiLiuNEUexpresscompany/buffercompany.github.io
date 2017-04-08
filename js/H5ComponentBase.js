@@ -18,18 +18,27 @@ var H5ComponentBase = function(cfg){
 			left: '50%'
 		});
 	};
+	if( typeof cfg.onlick === 'function'){
+		component.on('click',cfg.onclick);
+	};
 	component.on('onLoad',function(){
-		component.addClass('h5_component_'+cfg.type+'_load').removeClass('h5_component_'+cfg.type+'_leave');
-		cfg.animateIn && component.animate(cfg.animateIn);
+		setTimeout(function(){
+			component.addClass('h5_component_'+cfg.type+'_load').removeClass('h5_component_'+cfg.type+'_leave');
+			cfg.animateIn && component.animate(cfg.animateIn);
+		},cfg.delay || 0);
+		return false;
 	});
 	component.on('onLeave',function(){
-		component.addClass('h5_component_'+cfg.type+'_leave').removeClass('h5_component_'+cfg.type+'_load');
-		cfg.animateOut && component.animate(cfg.animateOut);
+		setTimeout(function(){
+			component.addClass('h5_component_'+cfg.type+'_leave').removeClass('h5_component_'+cfg.type+'_load');
+			cfg.animateOut && component.animate(cfg.animateOut);
+		},cfg.delay);
+		return false;
 	});
 	
 	var isLeave = false;
 	$('body').on('click',function(){
-		$('.h5_component').trigger(isLeave ? 'onLeave' : 'onLoad');
+		// $('.h5_component').trigger(isLeave ? 'onLeave' : 'onLoad');
 		isLeave = !isLeave;
 	});
 
