@@ -7,7 +7,7 @@
 	position: absolute;
 	border-radius: 50%;
 }
-.h5_component .name{
+.h5_component_point .name{
 	position: absolute;
 	width: 100%;
 	height: 20px;
@@ -19,6 +19,6 @@
 	font-weight: bold;
 	color: #fff;
 }
-.h5_component .rate{
+.h5_component_point .rate{
 	font-size: 0.5em;
 }

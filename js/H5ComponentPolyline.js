@@ -105,11 +105,12 @@ var H5ComponentPolyline = function(cfg){
 	//数据伸展动画
 	component.on('onLoad',function(){
 		var s = 0;
+		//闭包写法
 		for (var i = 0; i < 100; i++) {
 			setTimeout(function(){
 				s += .01;
 				drawPolyline(s);
-			}, i * 10 + 800)
+			}, i * 10 + 2000)
 		}
 	})
 
@@ -126,6 +127,6 @@ var H5ComponentPolyline = function(cfg){
 	})
 
 
-	drawPolyline(.2);
+	// drawPolyline(.2);
 	return component;
 }

@@ -124,7 +124,7 @@ var H5ComponentPie = function(cfg){
 			setTimeout(function(){
 				s += .01;
 				drawPie(s);
-			}, i * 10 + 800)
+			}, i * 10 + 1500)
 		}
 	})
 

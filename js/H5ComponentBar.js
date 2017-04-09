@@ -4,7 +4,7 @@ var H5ComponentBar = function(cfg){
 	var base = cfg.data[0][1];//定义进度条长度的基数
 	//输出每个bar
 	$.each(cfg.data, function(index, item) {
-		var row = $('<div class = "bar bar_'+(index + 1)+'"></div>');//整行
+		var row = $('<div class = "bar bar-'+(index + 1)+'"></div>');//整行
 		var name = $('<div class = "name">'+item[0]+'</div>');//项目名
 		var prcs = $('<div class = "prcs"></div> ');//进度（比例）
 		var prcs_bg = $('<div class = "prcs-bg"></div>');//进度内层 * 便于后面制作伸展动画

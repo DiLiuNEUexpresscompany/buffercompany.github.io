@@ -21,6 +21,10 @@ var H5 = function(){
 		}
 		this.el.append( page );
 		this.page.push( page );//将当前创建的页存储到H5对象的currentPage中，便于将组件添加到当前页，而非其他页
+		// 插入footer
+		if( typeof this.addFooter === 'function' ){
+			this.addFooter();
+		}
 		return this;
 	}
 
@@ -33,17 +37,30 @@ var H5 = function(){
 		var cfg = cfg || {};
 		var page = this.page.slice( -1 )[0];//问题：此处currentPage是数组，需要将其元素赋值给page，否则导致page不是对象，不支持.append方法，出错！
 		//.slice方法返回的是数组，同样取出元素赋值给page，否则出错！
-		cfg = $.extend(cfg,{type:'base'});
+		cfg = $.extend({type:'base'},cfg);// $.extend若后者参数同前者，后者将覆盖前者，故此处将cfg放在后面，防止type值被覆盖
 		var component;
 		switch( cfg.type ){
 			case 'base'://组件对象有多种，便于扩展组件对象类型
 				component = new H5ComponentBase( cfg );
+				break;
+			case 'polyline':
+				component = new H5ComponentPolyline( cfg );
+				break;
+			case 'pie':
+				component = new H5ComponentPie( cfg );
+				break;
+			case 'bar':
+				component = new H5ComponentBar( cfg );
+				break;
+			case 'radar':
+				component = new H5ComponentRadar( cfg );
 				break;
 			default:
 		}
 		page.append( component );
 		return this;
 	}
+
 	this.loader = function( index ){
 		this.el.fullpage({
 			onLeave:function(index, nextIndex, direction){

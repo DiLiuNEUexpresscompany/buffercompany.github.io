@@ -18,7 +18,7 @@ var H5ComponentBase = function(cfg){
 			left: '50%'
 		});
 	};
-	if( typeof cfg.onlick === 'function'){
+	if( typeof cfg.onclick === 'function'){
 		component.on('click',cfg.onclick);
 	};
 	component.on('onLoad',function(){

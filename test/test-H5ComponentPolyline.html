@@ -48,6 +48,14 @@
 		};
 		var h5 = new H5ComponentPolyline(cfg);
 		$('.phone').append(h5);
+
+		var isLeave = false;
+		$('body').on('click',function(){
+			$('.h5_component').trigger(isLeave ? 'onLeave' : 'onLoad');
+			isLeave = !isLeave;
+		});
+
+		
 	</script>
 </body>
 </html>
