@@ -3,7 +3,7 @@ var H5ComponentPie = function(cfg){
 	var cfg = cfg || {};
 	var component = new H5ComponentBase(cfg);
 
-	var colors = ['blue', 'green', 'red', 'yellow', 'purple'];
+	var colors = ['DarkTurquoise', 'ForestGreen', 'Crimson', 'gold', 'purple'];
 
 	//绘制数据层
 	var w = cfg.width;
@@ -39,7 +39,7 @@ var H5ComponentPie = function(cfg){
 		var rate = cfg.data[i][1] * 2 * Math.PI;
 		var eAngle = sAngle + rate;
 		
-		console.log(Math.sin(sAngle))
+		// console.log(Math.sin(sAngle))
 		ctx.beginPath();
 		ctx.moveTo(r,r);
 		ctx.arc( r, r, r, sAngle, eAngle );
@@ -47,7 +47,7 @@ var H5ComponentPie = function(cfg){
 		ctx.fill();
 		ctx.stroke();
 		sAngle = eAngle;
-		console.log('sAngle:'+sAngle/Math.PI*180+'',sAngle/Math.PI,'rate:'+rate/Math.PI+'')
+		// console.log('sAngle:'+sAngle/Math.PI*180+'',sAngle/Math.PI,'rate:'+rate/Math.PI+'')
 
 		// 添加项目文字及百分比
 		var text = $('<div class="text text-'+(i+1)+'">'+cfg.data[i][0]+'</div>');
@@ -57,7 +57,7 @@ var H5ComponentPie = function(cfg){
 		text.append( per );
 		component.append( text );
 
-		text.css( 'zIndex', 999 );
+		text.css( {'zIndex': 999,'width':'150px'} );
 		text.css('transition', 'all 0.5s '+i*.1+'s');// 项目文字动画
 		if( x > w/2 ){
 			text.css( 'left', x/2+5);
@@ -119,7 +119,7 @@ var H5ComponentPie = function(cfg){
 	//数据伸展动画
 	component.on('onLoad',function(){
 		var s = 0;
-		console.log('trigger:onLoad')
+		// console.log('trigger:onLoad')
 		for (var i = 0; i < 100; i++) {
 			setTimeout(function(){
 				s += .01;
@@ -131,7 +131,7 @@ var H5ComponentPie = function(cfg){
 	//数据退场动画
 	component.on('onLeave',function(){
 		var s = 1;
-		console.log('trigger:onLeave')
+		// console.log('trigger:onLeave')
 		//闭包写法
 		for (var i = 0; i < 100; i++) {
 			setTimeout(function(){

@@ -17,7 +17,7 @@ var H5ComponentPolyline = function(cfg){
 	//水平网格线 10份
 	var step = 10;
 	ctx.beginPath();
-	ctx.lineWidth = 1;
+	ctx.lineWidth = 5;
 	ctx.strokeStyle =  "#aaa";
 
 	window.ctx = ctx;
@@ -40,7 +40,7 @@ var H5ComponentPolyline = function(cfg){
 				width:Math.round(w / ( step + 1 ) * .5),
 				left:Math.round(w / ( step + 1 ) * .5 * ( i + 1 )),
 				marginLeft:Math.round(-w / ( step + 1 ) * .25),
-				top:Math.round(h * .5 + 5),
+				top:Math.round(h * .5 + 20),
 			});
 			component.append( text );
 		}
@@ -67,7 +67,7 @@ var H5ComponentPolyline = function(cfg){
 
 		//绘制折线数据
 		ctx.beginPath();
-		ctx.lineWidth = 3;
+		ctx.lineWidth = 10;
 		ctx.strokeStyle = '#ff8878';
 
 		//画点
@@ -78,7 +78,8 @@ var H5ComponentPolyline = function(cfg){
 			ctx.moveTo(x,y);//如果不先moveTo(x,y)会导致直接将点连成线？？？
 			ctx.arc(x,y,5,0,2*Math.PI);
 			ctx.fillStyle = item[2] ? item[2] : '#333';//数据颜色
-			ctx.fillText(Math.round(item[1] * 100) + '%', x - 10, y - 15);//写数据
+			ctx.font = "50px Verdana";
+			ctx.fillText(Math.round(item[1] * 100) + '%', x - 10, y - 25);//写数据
 		}
 
 		//连线

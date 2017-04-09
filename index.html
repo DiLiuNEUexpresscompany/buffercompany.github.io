@@ -132,7 +132,7 @@
 					height: 240,
 					bg: 'images/face_slogan.png',
 					css:{opacity:0},
-					animateIn:{top:700,opacity:1},
+					animateIn:{top:650,opacity:1},
 					animateOut:{top:0,opacity:0},
 					center: true,
 					delay: 500
@@ -173,7 +173,7 @@
 					},
 					animateIn:{
 						opacity:1,
-						top: 400
+						top: '20%'
 					},
 					animateOut:{
 						opacity:0,
@@ -192,7 +192,7 @@
 					},
 					animateIn:{
 						opacity:1,
-						top: '40%'
+						top: '35%'
 					},
 					animateOut:{
 						opacity:0,
@@ -226,11 +226,11 @@
 				} )// polyline
 				.addComponent( {
 					type: 'polyline',
-					width: 1000,
+					width: 1700,
 					height: 800,
 					name: 'myPolyline',
 					css: {
-						bottom: 0,
+						bottom: '20%',
 						opacity: 0
 					},
 					animateIn:{
@@ -238,16 +238,16 @@
 						opacity: 1
 					},
 					animateOut:{
-						bottom: 0,
+						bottom: '20%',
 						opacity: 0
 					},
 					center: true,
 					data:[
-						['Js',.4,'#ff7676'],
-						['CSS3',.1],
-						['HTML5',.2],
-						['PHP',.5],
-						['jQuery',.35]
+						['前端开发',.4],
+						['后端开发',.15],
+						['移动开发',.25],
+						['数据库',.1],
+						['UI设计',.1]
 					],
 					delay: 1000
 				})
@@ -255,24 +255,24 @@
 					name:'text',
 					width:1300,
 					height:200,
-					text:'前端开发课程占到40%以上',
+					text:'前端开发课程占到40%',
 					css:{
 						opacity:0,
-						top: '40%',
+						top: '85%',
 						fontSize:'50px',
 						color:'red',
 						textAlign:'center'
 					},
 					animateIn:{
 						opacity:1,
-						top: '30%'
+						top: '80%'
 					},
 					animateOut:{
 						opacity:0,
-						top: '40%'
+						top: '85%'
 					},
 					center:true,
-					delay:1000
+					delay:2000
 				})
 			.addPage( 'page4' )
 				.addComponent( {
@@ -285,7 +285,7 @@
 					width:1000,
 					height:1000,
 					css: {
-						bottom: 0,
+						bottom: '20%',
 						opacity: 0
 					},
 					animateIn:{
@@ -293,18 +293,40 @@
 						opacity: 1
 					},
 					animateOut:{
-						bottom: 0,
+						bottom: '20%',
 						opacity: 0
 					},
 					center: true,
 					data:[
-						['Js',.2],
-						['CSS3',.2,'#ff7676'],
-						['HTML5',.25],
-						['PHP',.05],
-						['jQuery',.3]
+						['Android',.4,'#ff7676'],
+						['IOS',.2],
+						['Coco2d-x',.25],
+						['Unity-3D',.15],
 					],
 					delay:1000
+				})
+				.addComponent( {
+					name:'text',
+					width:1300,
+					height:200,
+					text:'移动端Android课程占到40%',
+					css:{
+						opacity:0,
+						top: '85%',
+						fontSize:'50px',
+						color:'red',
+						textAlign:'center'
+					},
+					animateIn:{
+						opacity:1,
+						top: '80%'
+					},
+					animateOut:{
+						opacity:0,
+						top: '85%'
+					},
+					center:true,
+					delay:2000
 				})
 			.addPage( 'page5' )
 				.addComponent( {
@@ -317,15 +339,15 @@
 					width:1300,
 					height:800,
 					css: {
-						bottom: 0,
+						bottom: '20%',
 						opacity: 0
 					},
 					animateIn:{
-						bottom: '30%',
+						bottom: '35%',
 						opacity: 1
 					},
 					animateOut:{
-						bottom: 0,
+						bottom: '20%',
 						opacity: 0
 					},
 					center: true,
@@ -340,6 +362,29 @@
 					],
 					delay:1000
 				})
+				.addComponent( {
+					name:'text',
+					width:1300,
+					height:200,
+					text:'前端JavaScript课程占到40%',
+					css:{
+						opacity:0,
+						top: '85%',
+						fontSize:'50px',
+						color:'red',
+						textAlign:'center'
+					},
+					animateIn:{
+						opacity:1,
+						top: '80%'
+					},
+					animateOut:{
+						opacity:0,
+						top: '85%'
+					},
+					center:true,
+					delay:2500
+				})
 			.addPage( 'page6' )
 				.addComponent( {
 					name:'caption',
@@ -351,7 +396,7 @@
 					width: 1000,
 					height: 1000,
 					css: {
-						bottom: 0,
+						bottom: '20%',
 						opacity: 0
 					},
 					animateIn:{
@@ -359,28 +404,75 @@
 						opacity: 1
 					},
 					animateOut:{
-						bottom: 0,
+						bottom: '20%',
 						opacity: 0
 					},
 					center: true,
 					data:[
-						['JS',.4,'#ff7676'],
-						['PHP',.51],
-						['HTML5',.52],
-						['python',.41],
-						['jQuery',.52]
+						['Java',.4,'#ff7676'],
+						['PHP',.25],
+						['Pyhton',.15],
+						['C',.1],
+						['Ruby',.1]
 					]
 				})
-			.addPage( 'page7' )
 				.addComponent( {
-					name:'caption',
-					text:'课程报名人数过万'
-				})// ring
+					name:'text',
+					width:1300,
+					height:200,
+					text:'后端Java课程占到40%',
+					css:{
+						opacity:0,
+						top: '85%',
+						fontSize:'50px',
+						color:'red',
+						textAlign:'center'
+					},
+					animateIn:{
+						opacity:1,
+						top: '80%'
+					},
+					animateOut:{
+						opacity:0,
+						top: '85%'
+					},
+					center:true,
+					delay:2500
+				})
+			// .addPage( 'page7' )
+			// 	.addComponent( {
+			// 		name:'caption',
+			// 		text:'课程报名人数过万'
+			// 	})// ring
 			.addPage( 'page8' )
 				.addComponent( {
 					name:'caption',
 					text:'课程难度分布'
-				})// ring
+				})// point
+				.addComponent( {
+					type: 'point',
+					width: 700,
+					height: 700,
+					name: 'myPoint',
+					css: {
+						bottom: '20%',
+						opacity: 0
+					},
+					animateIn:{
+						bottom: '40%',
+						opacity: 1
+					},
+					animateOut:{
+						bottom: '20%',
+						opacity: 0
+					},
+					center: true,
+					data:[
+						['高级',.45,'Crimson'],
+						['中级',.25,'Coral','80%','120%'],
+						['初级',.3,'Salmon','-35%','120%'],
+					],
+				})
 			.addPage( 'tail' )
 				.addComponent( {
 					name: 'logo',
@@ -432,7 +524,7 @@
 					}
 				})
 				.loader()
-			// .loader( 6 )
+			// .loader( 8 )
 		});
 	</script>
 
