@@ -549,6 +549,7 @@ html hr {
 
 .banner {
   margin: 0;
+  background: url("../images/grey-prism.svg");
   padding-top: 0.75em;
   padding-bottom: 0.75em;
 }
@@ -596,6 +597,7 @@ html hr {
 
 .page-header {
   margin: 0 auto 24px;
+  background: url("../images/grey-prism.svg");
 }
 .page-header h1 {
   height: 96px;
