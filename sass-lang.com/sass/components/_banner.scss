@@ -1,5 +1,6 @@
 .banner{
 	margin: 0;
+	background: url('../images/grey-prism.svg');
 	@include padding-leader(0.5);
 	@include padding-trailer(0.5);
 	ul{
