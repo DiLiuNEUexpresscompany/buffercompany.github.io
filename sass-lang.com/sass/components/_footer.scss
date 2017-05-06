@@ -1,0 +1,60 @@
+%footerLinkStyle{
+	a{
+		text-decoration: none;
+		color: #484c55;
+		&:hover, &:focus{
+			color: #036;
+		}
+	}
+}
+.contentinfo{
+	background-image: url('../images/grey-prism.svg');
+	.container{
+		padding: 24px 0;
+		color: #808c99;
+		font-size: 12px;
+		line-height: 18px;
+		text-align: left;
+		ul{
+			@include clearfix;
+			margin: 0;
+			padding: 0;
+			li{
+				list-style: none;
+				float: left;
+				height: 100%;
+			}
+		}
+		.contentinfo-legal{
+			@include span(6);
+			@extend %footerLinkStyle;
+			vertical-align: middle;
+			text-align: left;
+			line-height: 18px;
+			padding: 28px 0;
+			p{
+				margin: 0;
+			}
+			p:first-child{
+				padding-bottom: 4.5px;
+			}
+		}
+		.contentinfo-tools{
+			@include span(4.5);
+			@extend %footerLinkStyle;
+			vertical-align: middle;
+			text-align: right;
+			li{
+				padding-right: 20px;
+				line-height: 96px;
+			}
+		}
+		.contentinfo-social{
+			@include span(1.5);
+			@extend %footerLinkStyle;
+			vertical-align: middle;
+			text-align: right;
+			line-height: 96px;
+		}
+	}
+}

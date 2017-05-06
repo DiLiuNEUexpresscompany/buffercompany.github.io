@@ -1,0 +1,36 @@
+.alert{
+	@include padding-leader(0.5);
+	@include padding-trailer(0.5);
+	background: #C6538C;
+	color: $alert-color;
+	&.stickers{
+		background: $alert-bg-color;
+	}
+	p{
+		margin: 0;
+		@include padding-trailer(0);
+	}
+	a{
+		text-decoration: none;
+		font-weight: 600;
+		color: #e6e6e6;
+		&:hover, &:focus{
+			text-decoration: underline;
+		}
+	}
+	&.release{
+		padding: 12px 0;
+		text-align: center;
+		ul{
+			margin: 0;
+			padding: 0;
+			li{
+				display: inline-block;
+				list-style: none;
+				height: 24px;
+				margin-right: 32px;
+				@include aStyle(block, none, underline, rgba(255,255,255,0.75), rgba(255,255,255,0.75), 24px);
+			}
+		}
+	}
+}

@@ -1,0 +1,163 @@
+.documentation{
+	// aStyle($display: block, $underline: none, $underline-hover: underline, $color: #ccc, $color-hover: red, $height: 1em)
+	font-family: 'Source Sans Pro', sans-serif;
+	@include aStyle(inline-block, none, none, #05a, #05a, auto);
+	a{
+		&:hover, &:focus{
+			font-size: 16px;
+			line-height: 24px;
+			background-color: #ffffa5;
+		}
+	}
+	strong{
+		font-weight: bold;
+	}
+	margin: 8px;
+	margin-bottom: 0;
+	padding: 32px;
+	padding-bottom: 0;
+	text-align: left;
+	iframe{
+		overflow: hidden;
+	}
+
+	#header{
+		@include clearfix();
+		margin-bottom: 30px;
+		.noframes{
+			display: inline-block;
+		}
+		a{
+			color: #333;
+			border-bottom: 1px dotted #bbd;
+			&:hover{
+				color: #05a;
+				background: #fff;
+			}
+		}
+	}
+	#menu{
+		float: left;
+	}
+	#search{
+		position: absolute;
+		top: 0;
+		right: 14px;
+		.full_list_link{
+			margin-right: 4px;
+			padding: 8px 10px;
+			border: 1px solid #d8d8e5;
+			background: #eaf0ff;
+			@include box-shadow(#D3D3D3 -1px 1px 3px);
+			&:hover{
+				background: #f5faff;
+			}
+		}
+		.full_list_link_active{
+			background: #f5faff;
+		}
+	}
+
+	#search_frame{
+		display: none;
+		position: absolute;
+		top: 36px;
+		right: 18px;
+		width: 500px;
+		height: 80%;
+		border: 1px solid #999;
+		background: #fff;
+		z-index: 99999;
+		overflow-y: scroll;
+		@include box-shadow(#999 -5px 5px 20px);
+	}
+	#content{
+		@include clearfix;
+	}
+	#toc{
+		float: right;
+		position: relative;
+		margin: 0 0 20px 20px;
+		padding: 20px 30px 20px 20px;
+		border: 1px solid #ddd;
+		max-width: 300px;
+		background: #fff;
+		overflow-x: auto;
+		z-index: 9999;
+		@include box-shadow(#bbb -2px 2px 6px);
+		.title{
+			margin: 0;
+		}
+		ol{
+			padding-left: 28px;
+		}
+		li{
+			list-style-position: outside;
+		}
+		.top{
+			a{
+				display: block;
+			}
+		}
+		.top{
+			&>li{
+				font-weight: bold;
+			}
+		}
+	}
+	#filecontents{
+		h1{
+			margin: 0 0 12px;
+			padding: 4px 0 0;
+			border-top: 1px dotted #d5d5d5;
+			font-size: 25px;
+		}
+		h2{
+			margin: 40px 0 11px;
+			padding: 0 0 3px;
+			border-bottom: 1px solid #aaa;
+			font-size: 22px;
+			code{
+				padding: 0;
+				border: none;
+				border-radius: 0;
+				color: inherit;
+				font-family: inherit;
+				font-size: inherit;
+				font-weight: inherit;
+				color: inherit;
+				background: inherit;
+			}
+		}
+		h3{
+			code{
+				padding: 0;
+				border: none;
+				border-radius: 0;
+				color: inherit;
+				font-family: inherit;
+				font-size: inherit;
+				font-weight: inherit;
+				color: inherit;
+				background: inherit;
+			}
+		}
+		ul{
+			padding-left: 20px;
+		}
+
+	}
+	.maruku_toc{
+		display: none;
+		ul{
+			padding-left: 20px;
+		}
+	}
+	#footer{
+		margin: 0;
+		padding: 7px 0;
+		border-top: 1px solid #ccc;
+		text-align: center;
+		color: #999;
+	}
+}

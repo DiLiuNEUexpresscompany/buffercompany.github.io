@@ -1,0 +1,33 @@
+.body{
+	@include padding-leader(2);
+	.content{
+		margin: 0 16px;
+		// padding: 0 16px 48px;
+		padding: 0 16px;
+		// .main{
+			.hero-lockup{
+				width: 100%;
+				height: 100%;
+				@include clearfix;
+			}
+			.hero-image{
+				@include span(6);
+				padding-right: 2em;
+				img{
+					width: 100%;
+				}
+			}
+			.introduction{
+				@include span(6);
+				height: 100%;
+				padding: 65px 0;
+				font-size: 1.5em;
+				line-height: 36px;
+				color: #699;
+				text-align: left;
+				vertical-align: middle;
+			}
+		// }
+	}
+	
+}
