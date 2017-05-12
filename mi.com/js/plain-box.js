@@ -112,4 +112,18 @@ $(document).ready(function() {
     }
     // $($(element).find('.dotBtn li')[newIndex]).find('span').addClass('active').parent().siblings().find('span').removeClass('active');
     
+
+    // 查看全部
+    $('.more-link').hover(function(){
+    	$(this).find('i').css('background','#ff6700');
+    },function(){
+    	$(this).find('i').css('background','#b0b0b0');
+    });
+
+    // video-play
+    $('#video .brick-item').hover(function(){
+        $(this).find('.play').addClass('play-active');
+    },function(){
+        $(this).find('.play').removeClass('play-active');
+    })
 });
