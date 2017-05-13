@@ -1139,6 +1139,9 @@ a:hover, a:focus {
 .plain-box .topic .control-next {
   margin-left: -1px;
 }
+.plain-box .carousel-wrapper {
+  overflow: hidden;
+}
 .plain-box .carousel-list {
   height: 340px;
   margin-right: -14px;
