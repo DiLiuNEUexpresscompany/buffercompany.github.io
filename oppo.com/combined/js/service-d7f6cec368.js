@@ -1,0 +1,1 @@
+$(document).ready(function(){$(".faq-list .faq-item").click(function(){var i=$(this).find(".iconfont");$(this).find(".faq-details").toggle(),i.attr("class").indexOf("icon-jian")>=0?i.removeClass("icon-jian").addClass("icon-jia"):i.addClass("icon-jian").removeClass("icon-jia")}),$(".faq-list .faq-item .faq-details").click(function(){return!1})});
