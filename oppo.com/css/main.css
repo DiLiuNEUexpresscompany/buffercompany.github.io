@@ -2022,7 +2022,7 @@ body {
   width: 100%;
   height: 0;
   padding-bottom: 30.71017%;
-  background-image: url("/service/images/hero-image-L.jpg");
+  background-image: url("../service/images/hero-image-L.jpg");
   background-repeat: no-repeat;
   background-position: center center;
   -moz-background-size: cover;
@@ -2245,7 +2245,7 @@ body {
 @media only screen and (max-width: 61.875em) {
   .main-content .service-hero-image {
     padding-bottom: 97.65625%;
-    background-image: url("/service/images/hero-image-M.jpg");
+    background-image: url("../service/images/hero-image-M.jpg");
     -moz-background-size: 100%;
     -o-background-size: 100%;
     -webkit-background-size: 100%;
@@ -2255,7 +2255,7 @@ body {
 @media only screen and (max-width: 46.875em) {
   .main-content .service-hero-image {
     padding-bottom: 151.85185185%;
-    background-image: url("/service/images/hero-image-S.jpg");
+    background-image: url("../service/images/hero-image-S.jpg");
   }
   .main-content .service-item {
     width: 50%;
