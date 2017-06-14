@@ -1,0 +1,99 @@
+@charset "UTF-8";
+/*! 基本样式*/
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font: 14px/1.5 "Helvetica Neue",Helvetica,Arial,"Microsoft Yahei","Hiragino Sans GB","Heiti SC","WenQuanYi Micro Hei",sans-serif;
+  color: #333;
+  background-color: #fff;
+}
+
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+
+.body-title {
+  display: block;
+  font-size: 16px;
+  font-weight: bold;
+  background: #303030;
+  color: #fff;
+  text-align: center;
+  vertical-align: middle;
+}
+
+/*! page-heaer通用样式*/
+.page-header .container:after, .page-header .nav ul:after {
+  display: block;
+  content: "";
+  clear: both;
+}
+
+.page-header .nav ul {
+  margin: 0;
+  padding: 0;
+}
+
+.page-header .logo, .page-header .nav li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+.page-header {
+  width: 100%;
+  height: 50px;
+  background: #303030;
+  color: #fff;
+  position: fixed;
+}
+.page-header .container {
+  width: 1000px;
+  margin: 0 auto;
+}
+.page-header .logo {
+  float: left;
+  width: 16.66667%;
+  height: 50px;
+}
+.page-header .logo .logo-img {
+  display: block;
+  width: 40px;
+  height: 40px;
+  margin: 5px 0;
+  background-image: url("http://ww1.sinaimg.cn/large/88920041gy1ffenor1dwhj20go0m8q65.jpg");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+  -webkit-broder-radius: 50%;
+  -moz-broder-radius: 50%;
+  -ms-broder-radius: 50%;
+}
+.page-header .nav {
+  text-align: right;
+  font-size: 16px;
+  font-weight: bold;
+  float: left;
+  width: 83.33333%;
+}
+.page-header .nav li {
+  float: left;
+  padding: 0 20px;
+  height: 50px;
+  line-height: 50px;
+  list-style: none;
+}
+
+.page-intro {
+  padding-top: 50px;
+}
