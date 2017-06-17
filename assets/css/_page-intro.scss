@@ -49,14 +49,21 @@ $imgHeight: 230px;
 
 .works-list {
     @extend %clearfix;
+    @extend %clearmp;
+    margin: 0 50px;
     li {
         @extend %clearfix;
+        position: relative;
         width: 100%;
         display: block;
         list-style: none;
         margin-top: 16px;
         background: #fff;
         box-shadow: 3px 3px 10px #ccc;
+        transition: all 0.3s ease;
+        &:hover{
+          transform: translateX(5px);
+        }
     }
     .img-wrapper {
         @include col(3.5);

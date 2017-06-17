@@ -6,7 +6,7 @@
 }
 
 body {
-  font: 14px/1.5 "Helvetica Neue",Helvetica,Arial,"Microsoft Yahei","Hiragino Sans GB","Heiti SC","WenQuanYi Micro Hei",sans-serif;
+  font: 14px/1.5 "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;
   color: #333;
   background-color: #f6f6f6;
 }
@@ -30,7 +30,7 @@ a {
   clear: both;
 }
 
-.page-header .nav ul, .pic, .name, .motto {
+.page-header .nav ul, .pic, .name, .motto, .works-list {
   margin: 0;
   padding: 0;
 }
@@ -74,6 +74,35 @@ a {
   line-height: 30px;
   background-color: #ccc;
   vertical-align: middle;
+}
+
+.tags > span {
+  display: inline-block;
+  margin: 0 5px;
+  padding: 0 5px;
+  border: 1px solid #009B72;
+  border-radius: 3px;
+  color: #009B72;
+  cursor: pointer;
+}
+.tags > span:hover {
+  background: #009B72;
+  color: #fff;
+}
+
+.more-btn {
+  margin: 0;
+  padding: 5px 15px;
+  display: inline-block;
+  background: #009B72;
+  color: #fff;
+  cursor: pointer;
+}
+
+.vw-source {
+  position: absolute;
+  right: 15px;
+  bottom: 15px;
 }
 
 /*! page-header通用样式*/
@@ -121,6 +150,9 @@ a {
   line-height: 50px;
   list-style: none;
 }
+.page-header .nav li.active {
+  background: rgba(0, 155, 114, 0.5);
+}
 .page-header .nav li a:hover {
   color: #fff;
 }
@@ -163,13 +195,24 @@ a {
   font-size: 26px;
 }
 
+.works-list {
+  margin: 0 50px;
+}
 .works-list li {
+  position: relative;
   width: 100%;
   display: block;
   list-style: none;
   margin-top: 16px;
   background: #fff;
   box-shadow: 3px 3px 10px #ccc;
+  -webkit-transition: all 0.3s ease;
+          transition: all 0.3s ease;
+}
+.works-list li:hover {
+  -webkit-transform: translateX(5px);
+      -ms-transform: translateX(5px);
+          transform: translateX(5px);
 }
 .works-list .img-wrapper {
   float: left;

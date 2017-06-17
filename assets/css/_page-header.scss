@@ -47,6 +47,9 @@ $pageHeaderColor: #fff;
 			height: $pageHeaderHeight;
 			line-height: $pageHeaderHeight;
 			list-style: none;
+			&.active{
+				background: $mainColor3;
+			}
 			a{
 				@extend %link;
 				&:hover{
