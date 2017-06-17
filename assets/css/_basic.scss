@@ -126,6 +126,15 @@ a {
     color: #fff;
     cursor: pointer;
 }
+.link-btn{
+	border: 1px solid #ddd;
+	color: #aaa;
+	padding: 5px;
+	&:hover{
+		border-color: $mainColor2;
+		color: $mainColor2;
+	}
+}
 
 .vw-source {
     position: absolute;

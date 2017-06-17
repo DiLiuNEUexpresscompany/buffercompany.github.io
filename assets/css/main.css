@@ -24,13 +24,13 @@ a {
   float: right;
 }
 
-.container:after, .page-header .container:after, .page-header .nav ul:after, .works-list:after, .works-list li:after {
+.container:after, .page-header .container:after, .page-header .nav ul:after, .works-list:after, .works-list li:after, .page-footer .links-list:after, .page-footer .contact-list:after {
   display: block;
   content: "";
   clear: both;
 }
 
-.page-header .nav ul, .pic, .name, .motto, .works-list {
+.page-header .nav ul, .pic, .name, .motto, .works-list, .page-footer .contact-list {
   margin: 0;
   padding: 0;
 }
@@ -45,7 +45,7 @@ a {
   font-weight: inherit;
 }
 
-.body-title, .title-wrapper, .pic, .name, .motto, .info {
+.body-title, .title-wrapper, .pic, .name, .motto, .info, .page-footer h3, .page-footer .contact-list {
   margin-left: auto;
   margin-right: auto;
   text-align: center;
@@ -97,6 +97,16 @@ a {
   background: #009B72;
   color: #fff;
   cursor: pointer;
+}
+
+.link-btn {
+  border: 1px solid #ddd;
+  color: #aaa;
+  padding: 5px;
+}
+.link-btn:hover {
+  border-color: #009B72;
+  color: #009B72;
 }
 
 .vw-source {
@@ -238,6 +248,41 @@ a {
   height: 230px;
   padding: 20px;
   background: #fff;
+}
+
+/*!page-footer*/
+.page-footer h3 {
+  color: #9E9E9E;
+}
+.page-footer li {
+  list-style: none;
+}
+.page-footer .links {
+  float: left;
+  width: 41.66667%;
+}
+.page-footer .contact {
+  float: left;
+  width: 58.33333%;
+}
+.page-footer .links-list li {
+  float: left;
+  width: 50%;
+  margin: 10px 0;
+}
+.page-footer .contact-list li {
+  float: left;
+  width: 22.91667%;
+  margin-right: 10px;
+  background: #009B72;
+}
+.page-footer .contact-list li:last-child {
+  margin-right: 0;
+}
+.page-footer .contact-img {
+  display: inline-block;
+  width: 100%;
+  height: 100px;
 }
 
 /*# sourceMappingURL=main.css.map */
