@@ -1,1 +1,0 @@
-$(document).ready(function(){var i=[];$(".main-flagship .box").hover(function(){var t=$(this).find(".img");i[0]=parseInt(t.css("width")),i[1]=parseInt(t.css("height")),i[2]=1.025*i[0],i[3]=1.025*i[1],t.stop().animate({width:i[2],height:i[3]},200)},function(){$(this).find(".img").stop().animate({width:i[0],height:i[1]},200)})});
