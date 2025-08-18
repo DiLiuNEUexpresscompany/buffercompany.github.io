@@ -201,11 +201,11 @@ npm start
 
 #### 使用model
 
-定义好model之后需要讲model中的state和effects等关联至页面组件，页面组件可通过派发相应的action来调用model中的业务逻辑
+定义好model之后需要将model中的state和effects等关联至页面组件，页面组件可通过派发相应的action来调用model中的业务逻辑
 
 1. 将model关联到页面
 
-    使用`connect`包装页面组件，被包装的组件的props讲携带相应model的state，dispatch也将被挂载在组件的props上
+    使用`connect`包装页面组件，被包装组件的props将携带相应model的state，dispatch也将被挂载在组件的props上
 
     ```javascript
     import { connect } from 'dva'
