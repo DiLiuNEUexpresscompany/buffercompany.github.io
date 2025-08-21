@@ -10,6 +10,7 @@ import ProjectCard from '@/components/home/ProjectCard.astro'
 import Section from '@/components/home/Section.astro'
 import SkillLayout from '@/components/home/SkillLayout.astro'
 import avatar from '@/assets/avatar.jpeg'
+import favicon from '@/assets/icons/favicon.svg'
 import config from '@/site-config'
 
 const languages = ['Html', 'JavaScript', 'CSS', 'Go', 'Java']
@@ -168,6 +169,10 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
         <SkillLayout title='Frontend' skills={frontend} />
         <SkillLayout title='Backend' skills={backend} />
       </Section>
+
+      <div class="flex justify-center items-center mt-4">
+        <img class="w-12" src={favicon.src} />
+      </div>
     </div>
     <!-- <Quote class='mt-12' /> -->
   </main>
