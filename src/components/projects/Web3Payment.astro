@@ -49,13 +49,8 @@ const { address, className } = Astro.props
         <!-- 快捷金额按钮会动态生成 -->
       </div>
     </div>
-    <!-- 收款地址 -->
-    <div>
-      <label class='block text-sm font-medium mb-2'>Recipient Address</label>
-      <code class='block text-xs bg-background px-3 py-2 rounded-lg break-all font-mono border'>
-        {address}
-      </code>
-    </div>
+    <!-- 收款地址（隐藏显示，仅供复制使用） -->
+    <input type='hidden' id='wallet-address' value={address} />
     <br>
     <!-- 支付按钮 -->
     <div class='grid gap-2 sm:grid-cols-2'>
@@ -90,6 +85,7 @@ const { address, className } = Astro.props
     const quickAmountsDiv = document.getElementById('quick-amounts')
     const payButton = document.getElementById('pay-button')
     const copyButton = document.getElementById('copy-address')
+    const addressInput = document.getElementById('wallet-address') as HTMLInputElement | null
     const tokenButtons = document.querySelectorAll('.token-btn')
 
     // 更新快捷金额按钮
@@ -134,7 +130,7 @@ const { address, className } = Astro.props
 
     // 复制地址
     copyButton?.addEventListener('click', async () => {
-      const address = copyButton.getAttribute('data-address')
+      const address = copyButton.getAttribute('data-address') || addressInput?.value
       if (!address) return
       
       try {
@@ -149,7 +145,7 @@ const { address, className } = Astro.props
 
     // MetaMask 支付
     payButton?.addEventListener('click', async () => {
-      const address = payButton.getAttribute('data-address')
+      const address = payButton.getAttribute('data-address') || addressInput?.value
       const amount = amountInput?.value
       
       if (!amount || parseFloat(amount) <= 0) {
