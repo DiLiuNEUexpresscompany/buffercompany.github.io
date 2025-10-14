@@ -11,14 +11,21 @@ const {
   heading,
   subheading,
   imagePath,
-  altText
+  altText,
+  date,
+  imageClass,
+  imageStyle
 } = Astro.props
+const baseImageClass = cn(
+  'absolute top-0 w-full opacity-60 transition-opacity group-hover:opacity-100 dark:opacity-35'
+)
+const defaultImageClass = 'h-36 object-cover'
 const images = import.meta.glob<{ default: ImageMetadata }>(
-  '/src/assets/projects/*.{jpeg,jpg,png,gif,avif.webp}'
+  '/src/assets/projects/*.{jpeg,jpg,png,gif,avif,webp,svg}'
 )
 if (!images[imagePath])
   throw new Error(
-    `"${imagePath}" does not exist in glob: "src/assets/projects/*.{jpeg,jpg,png,gif,avif.webp}"`
+    `"${imagePath}" does not exist in glob: "src/assets/projects/*.{jpeg,jpg,png,gif,avif,webp,svg}"`
   )
 ---
 
@@ -34,12 +41,14 @@ if (!images[imagePath])
   <Image
     src={images[imagePath]()}
     alt={altText ?? heading}
-    class='absolute top-0 h-36 w-full object-cover opacity-60 transition-opacity group-hover:opacity-100 dark:opacity-35'
+    class={cn(baseImageClass, imageClass ?? defaultImageClass)}
+    style={imageStyle}
     loading='lazy'
   />
   <div class='project-card-fg z-10 flex flex-col gap-y-0.5 px-5 pb-4 pt-24 transition-all'>
     <h2 class='text-lg font-medium'>{heading}</h2>
     <p class='text-muted-foreground'>{subheading}</p>
+    {date && <p class='text-muted-foreground'>{date}</p>}
   </div>
   <slot />
 </Tag>

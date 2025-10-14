@@ -4,8 +4,13 @@ import { Button, Spoiler } from 'astro-pure/user'
 import PageLayout from '@/layouts/CommonPage.astro'
 import Substats from '@/components/about/Substats.astro'
 import ToolSection from '@/components/about/ToolSection.astro'
+import Sponsorship from '@/components/projects/Sponsorship.astro'
+import Web3Payment from '@/components/projects/Web3Payment.astro'
+import alipay from '@/assets/alipay-qrcode.jpg'
+import wechat from '@/assets/wechat-qrcode.jpg'
 
 const headings = [
+  { depth: 2, slug: 'sponsorship', text: 'Sponsorship' },
   { depth: 2, slug: 'hobbies', text: 'Hobbies' },
   { depth: 2, slug: 'tools', text: 'Tools' },
   { depth: 2, slug: 'social-networks', text: 'Social Networks' },
@@ -15,18 +20,16 @@ const headings = [
 ---
 
 <PageLayout title='About' {headings} info='/about'>
-  <p>Developer</p>
+  <p>AI Developer</p>
   <p>
-    你好，我叫 JohnieXu，具有 8 年前端开发经验（2017-至今）。
-    擅长 Vue、React、Angular 等前端框架，熟悉 Spring 等后端框架，熟悉 MySQL 等数据库。
-    熟练使用 Git、Github 等版本控制工具，熟悉 Linux 等操作系统。
-    熟悉 Docker 等容器化工具。
-    热爱开源，喜欢写博客。
+    你好，我叫 expresscompany，现在已经是一个成熟的摄影师了（大雾
+    <br><br>
+    这是我的<a href='https://500px.com/p/expresscompany' target='_blank' class='text-primary hover:underline'>500px</a>主页，欢迎访问
   </p>
   <p>
-    My motto: Stay hungry, Stay foolish. <Spoiler>我想，左肩有你，右肩微笑！</Spoiler>
+  <Spoiler>又携书剑路茫茫</Spoiler>
   </p>
-  <Button title='Sponsor Me' class='w-fit' href='/projects#sponsorship' style='ahead' />
+  
 
   {/* general-talk */}
   <!-- <h2 id='hobbies'>Hobbies</h2>
@@ -55,10 +58,16 @@ const headings = [
       },
       {
         name: 'Figma',
-        description: 'Vector Drawing',
+        description: 'UI/UX Design',
         href: 'https://www.figma.com/',
         icon: import('@/assets/tools/figma.svg?raw')
-      }
+      },
+      {
+        name: 'Lightroom',
+        description: 'Picture Editing',
+        href: 'https://www.adobe.com/products/lightroom',
+        icon: import('@/assets/tools/lightroom.svg?raw')
+      },
     ]}
   />
   <ToolSection
@@ -90,16 +99,28 @@ const headings = [
         icon: import('@/assets/tools/vscode.svg?raw')
       },
       {
-        name: 'WebStorm',
+        name: 'Cursor',
         description: 'IDE',
-        href: 'https://www.jetbrains.com/webstorm/',
-        icon: import('@/assets/tools/webstorm.svg?raw')
+        href: 'https://www.cursor.com/',
+        icon: import('@/assets/tools/cursor.svg?raw')
       },
       {
-        name: 'Warp',
-        description: 'Terminal',
-        href: 'https://warp.dev/',
-        icon: import('@/assets/tools/warp.svg?raw')
+        name: 'Kimi',
+        description: 'AI Assistant',
+        href: 'https://www.kimi.com/api/',
+        icon: import('@/assets/tools/moonshot.svg?raw')
+      },
+      {
+        name: 'ChatGPT',
+        description: 'AI Assistant',
+        href: 'https://www.openai.com/api/',
+        icon: import('@/assets/tools/chatgpt.svg?raw')
+      },
+      {
+        name: 'Claude',
+        description: 'AI Assistant',
+        href: 'https://www.anthropic.com/api/',
+        icon: import('@/assets/tools/claude.svg?raw')
       },
     ]}
   />
@@ -125,27 +146,47 @@ const headings = [
   {/* social-networks */}
   <h2 id='social-networks'>Social Networks</h2>
   <p>
-    你可以在以下平台找到我：
+    您可以在以下平台找到我：
   </p>
   <Substats
     stats={[
       {
         platform: 'GitHub',
         icon: 'github',
-        link: 'https://github.com/JohnieXu',
+        link: 'https://github.com/DiLiuNEUexpresscompany',
         text: 'followers',
-        api: 'github/JohnieXu'
+        api: 'github/DiLiuNEUexpresscompany'
       },
       {
-        platform: 'Juejin',
+        platform: 'Steam',
         icon: 'steam',
-        color: '#50769d',
-        link: 'https://juejin.cn/user/2277843822444958',
+        link: 'https://steamcommunity.com/profiles/76561198898364678/',
         text: 'games',
-        api: ''
-      }
+        api: 'steamgames/76561198898364678'
+      },
     ]}
   />
+  <Button title='Sponsor Me' class='w-fit' href='#sponsorship' style='ahead' />
+
+  <h2 id='sponsorship'>Sponsorship</h2>
+  <p>
+    如果您觉得我的工作对您有帮助，您可以通过以下方式支持我。您的支持是我继续创作的动力！
+  </p>
+  <!--
+  <h3 class='mt-6 mb-3 text-base font-medium'>Traditional Payment</h3>
+  <Sponsorship
+    methods={[
+      { name: 'WeChat Pay', icon: 'wechat', image: wechat },
+      { name: 'Alipay', icon: 'alipay', image: alipay }
+    ]}
+  />
+  -->
+  <h3 class='mt-8 mb-3 text-base font-medium'>Crypto Payment</h3>
+  <Web3Payment address='0xd374C24713057f8EE7a631869B6B961408a44b37' />
+
+  <p class='mt-4 text-sm text-muted-foreground'>
+    💡 <strong>Supports:</strong> ETH, USDT (ERC20), USDC (ERC20) - All use the same Ethereum address
+  </p>
 
   {/* gossips */}
   <!-- <h2 id='gossips'>Gossips</h2>
@@ -179,3 +220,23 @@ const headings = [
   </ul>
   <Comment slot='bottom' />
 </PageLayout>
+
+<style>
+  .sponsorship-card {
+    & .sponsorship-card-img {
+      opacity: 0.3;
+      --un-blur: blur(4px);
+      filter: var(--un-blur);
+    }
+
+    &:hover {
+      & .sponsorship-card-icon {
+        opacity: 0;
+      }
+      & .sponsorship-card-img {
+        opacity: 1;
+        --un-blur: blur(0);
+      }
+    }
+  }
+</style>

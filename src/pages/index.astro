@@ -13,9 +13,9 @@ import avatar from '@/assets/avatar.jpeg'
 import favicon from '@/assets/icons/favicon.svg'
 import config from '@/site-config'
 
-const languages = ['Html', 'JavaScript', 'CSS', 'Go', 'Java']
-const frontend = ['TypeScript', 'Vite', 'Webpack', 'Vue', 'React', 'Angular', 'TailwindCSS', 'Less', 'Sass']
-const backend = ['Spring', 'Docker', 'Nginx']
+const languages = [ 'Python','Go', ]
+const frontend = ['React', 'TailwindCSS']
+const backend = ['Docker', 'Nginx']
 
 const MAX_POSTS = 10
 const allPosts = await getBlogCollection()
@@ -35,7 +35,7 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
       <div class='flex flex-col items-center gap-y-4'>
         <h1 class='text-3xl font-bold'>{config.author}</h1>
         <div class='flex flex-wrap justify-center gap-x-7 gap-y-3'>
-          <Label title='China / WuHan'>
+          <Label title='China / Beijing'>
             <Icon name='location' class='size-5' slot='icon' />
           </Label>
           <Label
@@ -52,13 +52,15 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
 
     <div id='content' class='animate flex flex-col gap-y-10 md:w-4/5 lg:w-5/6'>
       <Section title='About'>
-        <p class='text-muted-foreground'>Developer</p>
+        <p class='text-muted-foreground'>AI Developer</p>
         <p class='text-muted-foreground'>
-          你好，我叫 JohnieXu，具有 8 年前端开发经验（2017-至今）。
-          擅长 Vue、React、Angular 等前端框架，熟悉 Spring 等后端框架，熟悉 MySQL 等数据库。
-          熟练使用 Git、Github 等版本控制工具，熟悉 Linux 等操作系统。
-          熟悉 Docker 等容器化工具。
-          热爱开源，喜欢写博客。
+          你好，我叫 expresscompany（Di），目前在<a href='https://www.moonshot.ai/' target='_blank' class='text-primary hover:underline'>Moonshot AI</a> 担任Search Staff。
+          <br><br>
+          我们的产品是 <a href='https://www.kimi.com/' target='_blank' class='text-primary hover:underline'>Kimi</a>，欢迎使用。
+          <br><br>
+          之前在美国东北大学（Northeastern University） 攻读信息系统硕士（MSIS），本科毕业于华中科技大学计算机科学与技术专业。
+          <br><br>
+          目前我的兴趣方向集中在人工智能与信息检索系统（AI-powered Search & Rerank）和Agent构造上，平时也热衷于开源项目和技术分享，喜欢通过写博客、维护 GitHub 项目来记录学习与研究过程。
         </p>
         <Button title='More about me' class='w-fit self-end' href='/about' style='ahead' />
       </Section>
@@ -106,24 +108,47 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
       />
     </Section> */
       }
+
+      <Section title='Work'>
+          <ProjectCard
+            href='https://www.moonshot.ai/'
+            heading='Moonshot AI'
+            subheading='Search Technical Staff'
+            imagePath='/src/assets/projects/moonshot-text.svg'
+            altText='Moonshot AI'
+            date='July 2025 - Present'
+            imageClass='h-36 w-auto'
+          />
+          <ProjectCard
+            href='https://www.huawei.com/cn/'
+            heading='华为'
+            subheading='终端BG 后端开发实习生'
+            imagePath='/src/assets/projects/huawei.svg'
+            altText='华为'
+            date='May 2022 - September 2022'
+            imageClass='h-36 object-contain !top-4'
+          />
+      </Section>
+
       <Section title='Education'>
-        <Card
-          as='a'
-          heading='长江大学'
-          subheading='机械设计制造及自动化学士学位'
-          date='August 2012 - July 2016'
-          href='https://www.yangtzeu.edu.cn/'
-        >
-          {
-            /* <ul class='ms-4 list-disc text-muted-foreground'>
-          <li>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore debitis recusandae, ut
-            molestiae laboriosam pariatur!
-          </li>
-          <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, pariatur!</li>
-        </ul> */
-          }
-        </Card>
+        <div class='grid grid-cols-1 gap-3 sm:grid-cols-2'>
+          <ProjectCard
+            href='https://www.northeastern.edu/'
+            heading='Northeastern University'
+            subheading='Master of Science in Information Systems'
+            imagePath='/src/assets/projects/Northeastern_Wordmark.svg'
+            altText='Northeastern University'
+            date='September 2023 - May 2025'
+          />
+          <ProjectCard
+            href='http://www.cs.hust.edu.cn/'
+            heading='华中科技大学'
+            subheading='计算机科学与技术学士'
+            imagePath='/src/assets/projects/hust-university.svg'
+            altText='华中科技大学'
+            date='September 2019 - July 2023'
+          />
+        </div>
       </Section>
 
       <!-- <Section title='Website List'>
@@ -170,10 +195,11 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
         <SkillLayout title='Frontend' skills={frontend} />
         <SkillLayout title='Backend' skills={backend} />
       </Section>
-
+       <!--
       <div class="flex justify-center items-center mt-4">
         <img class="w-12" src={favicon.src} />
       </div>
+      -->
     </div>
     <!-- <Quote class='mt-12' /> -->
   </main>

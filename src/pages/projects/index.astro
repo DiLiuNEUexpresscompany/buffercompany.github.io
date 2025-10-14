@@ -4,15 +4,12 @@ import { Image } from 'astro:assets'
 import { Button, Collapse, Icon } from 'astro-pure/user'
 import PageLayout from '@/layouts/CommonPage.astro'
 import ProjectSection from '@/components/projects/ProjectSection.astro'
-import alipay from '@/assets/alipay-qrcode.jpg'
 import KeyIcon from '@/assets/icons/key.svg'
-import wechat from '@/assets/wechat-qrcode.jpg'
 import config from '@/site-config'
 
 const headings = [
-  { depth: 2, slug: 'theme', text: 'Theme' },
+  { depth: 2, slug: 'theme', text: 'Library' },
   { depth: 2, slug: 'programs', text: 'Programs' },
-  { depth: 2, slug: 'learnings', text: 'Learnings' },
   { depth: 2, slug: 'others', text: 'Others' },
   { depth: 2, slug: 'gpg-signature', text: 'GPG Signature' },
 ]
@@ -22,17 +19,13 @@ const headings = [
   <p>Github Activities:</p>
   <p>
     <Image
-      src='https://ghchart.rshah.org/659eb9/JohnieXu'
+      src='https://ghchart.rshah.org/30a14e/DiLiuNEUexpresscompany'
       alt='github activities'
       inferSize
       loading='lazy'
     />
   </p>
-  <p>
-    If you think it would be useful or interesting to collaborate on a project, you can donate to
-    support my work or contact me to discuss a project.
-  </p>
-  <Button title='Checkout sponsorship' class='w-fit' href='#sponsorship'>
+  <Button title='Checkout sponsorship' class='w-fit' href='/about#sponsorship'>
     <Icon class='size-5' name='receive-money' slot='before' />
   </Button>
 
@@ -40,41 +33,16 @@ const headings = [
   <ProjectSection
     projects={[
       {
-        name: '75_action',
-        description: '一个自动抓取全部奇舞周刊文章链接的脚本。',
+        name: 'Pixiv MCP',
+        description: '适用于Pixiv.com的MCP Server',
         links: [
-          { type: 'github', href: 'https://github.com/JohnieXu/75_action' },
-          { type: 'site', href: 'https://github.com/JohnieXu/75_action' },
+          { type: 'github', href: 'https://github.com/DiLiuNEUexpresscompany/pixiv-mcp'},
           {
             type: 'doc',
-            href: 'https://github.com/JohnieXu/75_action/blob/master/README.md'
+            href: 'https://github.com/DiLiuNEUexpresscompany/pixiv-mcp/blob/main/README.md'
           }
         ]
       },
-      {
-        name: 'idinofe/xt-core',
-        description: '一个可靠的、充分测试的 JS 工具方法库。',
-        links: [
-          { type: 'github', href: 'https://github.com/idinofe/xt-core' },
-          { type: 'site', href: 'https://idinofe.github.io/xt-core/' },
-          {
-            type: 'doc',
-            href: 'https://idinofe.github.io/xt-core/'
-          }
-        ]
-      },
-      {
-        name: 'decrypt-core',
-        description: '对 crypto-js 中 TDEA(Triple DES) 算法的简单包装，更简洁更易于使用，支持环境更丰富。',
-        links: [
-          { type: 'github', href: 'https://github.com/JohnieXu/decrypt-core' },
-          { type: 'site', href: 'https://github.com/JohnieXu/decrypt-core' },
-          {
-            type: 'doc',
-            href: 'https://github.com/JohnieXu/decrypt-core/blob/master/README.md'
-          }
-        ]
-      }
     ]}
   />
 
@@ -82,23 +50,22 @@ const headings = [
   <ProjectSection
     projects={[
       {
-        name: '📒 vant-weapp',
+        name: 'LLM Based Multi-Agent Stock Analysis and Investment Advisor',
         description:
-          '基于有赞vant-weapp的小程序项目。',
+          '利用LLM和多代理框架来分析股票价格、收集相关新闻，并为公司生成全面的金融投资报告',
         links: [
-          { type: 'github', href: 'https://github.com/JohnieXu/vant-weapp' },
+          { type: 'github', href: 'https://github.com/DiLiuNEUexpresscompany/LLM-Based-Multi-Agent-Stock-Analysis-and-Investment-Advisor' },
           {
-            type: 'site',
-            href: 'https://github.com/JohnieXu/vant-weapp'
+            type: 'doc',
+            href: 'https://github.com/DiLiuNEUexpresscompany/LLM-Based-Multi-Agent-Stock-Analysis-and-Investment-Advisor/blob/main/Final_Project_Report.pdf'
           }
         ]
       },
       {
-        name: '💄 eureka',
-        description: '基于 Go 的跨平台文件加密/解密工具。',
+        name: 'LLM Driven Analytics Engine for Bitcoin',
+        description: '利用LLM和区块链数据分析比特币交易，并生成报告',
         links: [
-          { type: 'github', href: 'https://github.com/JohnieXu/eureka' },
-          { type: 'site', href: 'https://github.com/JohnieXu/eureka' },
+          { type: 'github', href: 'https://github.com/DiLiuNEUexpresscompany/LLM-Driven_Bitcoin_Blockchain_Analytics_Engine' },
         ]
       }
     ]}
@@ -107,35 +74,12 @@ const headings = [
     <ProjectSection
       projects={[
         {
-          name: 'exif-edit',
-          description: '一个基于 vue 的图片 exif 数据编辑器组件。',
+          name: 'edge seeker',
+          description: '一个新闻集合终端，可以查看新闻、阅读新闻、收藏新闻、分享新闻。',
           links: [
-            { type: 'github', href: 'https://github.com/JohnieXu/exif-edit' },
-            { type: 'site', href: 'https://exif-edit.vercel.app/' }
+            { type: 'github', href: 'https://github.com/DiLiuNEUexpresscompany/edgeSeeker' },
           ]
         },
-        {
-          name: 'xtjk-decrypt',
-          description: '基于Node.js的数据加解密工具，可应用于web应用调试。',
-          links: [
-            { type: 'github', href: 'https://github.com/JohnieXu/xtjk-decrypt' },
-          ]
-        },
-        {
-          name: 'xtjk-decrypt-chrome',
-          description: '基于 3DES 算法的数据加解密 Chrome 插件。',
-          links: [
-            { type: 'github', href: 'https://github.com/JohnieXu/xtjk-decrypt-chrome' },
-          ]
-        },
-        {
-          name: 'excel-demo',
-          description: '纯前端实现 Excel 文件在线解析和预览功能的 demo。',
-          links: [
-            { type: 'github', href: 'https://github.com/JohnieXu/excel-demo' },
-            { type: 'site', href: 'https://excel-demo.vercel.app/' }
-          ]
-        }
       ]}
     />
   </Collapse>
@@ -144,17 +88,9 @@ const headings = [
   <ProjectSection
     projects={[
       {
-        name: 'xx-blog',
-        description: "JohnieXu's Blog (旧版)",
-        links: [
-          { type: 'github', href: 'https://github.com/JohnieXu/xx-blog' },
-          { type: 'site', href: 'https://johniexu.github.io/xx-blog/' }
-        ]
-      },
-      {
-        name: 'JohnieXu',
-        description: 'JohnieXu Github',
-        links: [{ type: 'github', href: 'https://github.com/JohnieXu' }]
+        name: 'DiLiuNEUexpresscompany Blog',
+        description: 'DiLiuNEUexpresscompany Blog, fork from johniexu.github.io',
+        links: [{ type: 'github', href: 'https://github.com/DiLiuNEUexpresscompany/buffercompany.github.io' }]
       }
     ]}
   />
@@ -177,11 +113,15 @@ const headings = [
   define:vars={{ npmCDN: config.npmCDN, walineServer: config.integ.waline.server }}
 >
   const loadPageviewCount = async () => {
-    const pageview = await import(`${npmCDN}/@waline/client@v3/dist/pageview.js`)
-    pageview.pageviewCount({
-      serverURL: walineServer,
-      path: window.location.pathname
-    })
+    try {
+      const pageview = await import(`${npmCDN}/@waline/client@v3/dist/pageview.js`)
+      pageview.pageviewCount({
+        serverURL: walineServer,
+        path: window.location.pathname
+      })
+    } catch (error) {
+      console.log('Pageview counter not available (CDN blocked or network issue)')
+    }
   }
 
   await loadPageviewCount()

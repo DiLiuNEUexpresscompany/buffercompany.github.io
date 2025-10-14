@@ -1,0 +1,234 @@
+---
+import metamaskIcon from '@/assets/projects/metamask.svg'
+interface Props {
+  address: string
+  className?: string
+}
+
+const { address, className } = Astro.props
+---
+
+<div class={`web3-payment rounded-xl border bg-muted/30 p-5 ${className || ''}`}>
+  <div class='mb-4'>
+    <h3 class='text-lg font-medium mb-2'>Crypto Payment</h3>
+    <p class='text-sm text-muted-foreground'>Pay with ETH, USDT, or USDC using MetaMask</p>
+  </div>
+
+  <div class='space-y-3'>
+    <!-- 币种选择 -->
+    <div>
+      <label class='block text-sm font-medium mb-2'>Select Token</label>
+      <div class='grid grid-cols-3 gap-2'>
+        <button type='button' class='token-btn active px-3 py-2 text-sm rounded-lg border-2 transition-all hover:border-primary' data-token='ETH' data-decimals='18'>
+          <div class='font-medium'>ETH</div>
+          <div class='text-xs text-muted-foreground'>Ethereum</div>
+        </button>
+        <button type='button' class='token-btn px-3 py-2 text-sm rounded-lg border-2 transition-all hover:border-primary' data-token='USDT' data-decimals='6' data-contract='0xdAC17F958D2ee523a2206206994597C13D831ec7'>
+          <div class='font-medium'>USDT</div>
+          <div class='text-xs text-muted-foreground'>Tether</div>
+        </button>
+        <button type='button' class='token-btn px-3 py-2 text-sm rounded-lg border-2 transition-all hover:border-primary' data-token='USDC' data-decimals='6' data-contract='0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48'>
+          <div class='font-medium'>USDC</div>
+          <div class='text-xs text-muted-foreground'>USD Coin</div>
+        </button>
+      </div>
+    </div>
+
+    <!-- 金额输入 -->
+    <div>
+      <label class='block text-sm font-medium mb-2'>Amount</label>
+      <input 
+        type='number' 
+        id='payment-amount'
+        step='0.01'
+        min='0'
+        placeholder='0.00'
+        class='w-full px-4 py-2 border border-input rounded-lg bg-background focus:outline-none focus:ring-2 focus:ring-primary'
+      />
+      <div class='flex gap-2 mt-2' id='quick-amounts'>
+        <!-- 快捷金额按钮会动态生成 -->
+      </div>
+    </div>
+    <!-- 收款地址 -->
+    <div>
+      <label class='block text-sm font-medium mb-2'>Recipient Address</label>
+      <code class='block text-xs bg-background px-3 py-2 rounded-lg break-all font-mono border'>
+        {address}
+      </code>
+    </div>
+    <br>
+    <!-- 支付按钮 -->
+    <div class='grid gap-2 sm:grid-cols-2'>
+      <button
+        type='button'
+        id='pay-button'
+        class='flex items-center justify-center gap-2 rounded-lg bg-orange-500 px-4 py-3 font-medium text-white transition-colors hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2'
+        data-address={address}
+      >
+        <img src={metamaskIcon.src} width={20} height={20} alt='' aria-hidden='true' class='h-5 w-5' />
+        <span>Pay with MetaMask</span>
+      </button>
+      <button
+        type='button'
+        id='copy-address'
+        class='flex items-center justify-center gap-2 rounded-lg border border-input px-4 py-3 transition-colors hover:bg-accent'
+        data-address={address}
+      >
+        <span>Copy Address</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+  let selectedToken = 'ETH'
+  let selectedDecimals = 18
+  let selectedContract: string | null = null
+
+  function initWeb3Payment() {
+    const amountInput = document.getElementById('payment-amount') as HTMLInputElement
+    const quickAmountsDiv = document.getElementById('quick-amounts')
+    const payButton = document.getElementById('pay-button')
+    const copyButton = document.getElementById('copy-address')
+    const tokenButtons = document.querySelectorAll('.token-btn')
+
+    // 更新快捷金额按钮
+    function updateQuickAmounts(token: string) {
+      if (!quickAmountsDiv) return
+      
+      const amounts = token === 'ETH' 
+        ? ['0.01', '0.05', '0.1'] 
+        : ['10', '50', '100']
+      
+      quickAmountsDiv.innerHTML = amounts.map(amount => 
+        `<button type="button" class="quick-amount px-3 py-1 text-xs rounded border border-input bg-background hover:bg-accent transition-colors" data-amount="${amount}">${amount} ${token}</button>`
+      ).join('')
+
+      // 重新绑定快捷金额按钮事件
+      quickAmountsDiv.querySelectorAll('.quick-amount').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const amount = btn.getAttribute('data-amount')
+          if (amountInput && amount) {
+            amountInput.value = amount
+          }
+        })
+      })
+    }
+
+    // 币种选择
+    tokenButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        tokenButtons.forEach(b => b.classList.remove('active', 'border-primary', 'bg-primary/10'))
+        btn.classList.add('active', 'border-primary', 'bg-primary/10')
+        
+        selectedToken = btn.getAttribute('data-token') || 'ETH'
+        selectedDecimals = parseInt(btn.getAttribute('data-decimals') || '18')
+        selectedContract = btn.getAttribute('data-contract')
+        
+        updateQuickAmounts(selectedToken)
+      })
+    })
+
+    // 初始化快捷金额
+    updateQuickAmounts('ETH')
+
+    // 复制地址
+    copyButton?.addEventListener('click', async () => {
+      const address = copyButton.getAttribute('data-address')
+      if (!address) return
+      
+      try {
+        await navigator.clipboard.writeText(address)
+        const original = copyButton.innerHTML
+        copyButton.innerHTML = '✓'
+        setTimeout(() => copyButton.innerHTML = original, 2000)
+      } catch (err) {
+        console.error('Copy failed:', err)
+      }
+    })
+
+    // MetaMask 支付
+    payButton?.addEventListener('click', async () => {
+      const address = payButton.getAttribute('data-address')
+      const amount = amountInput?.value
+      
+      if (!amount || parseFloat(amount) <= 0) {
+        alert('❌ Please enter a valid amount')
+        return
+      }
+
+      // @ts-ignore
+      let ethereum = window.ethereum
+      
+      // 处理多钱包
+      // @ts-ignore
+      if (window.ethereum?.providers?.length) {
+        // @ts-ignore
+        ethereum = window.ethereum.providers.find((p) => p.isMetaMask)
+      }
+      
+      if (!ethereum?.isMetaMask) {
+        alert('Please install MetaMask!\n\nhttps://metamask.io')
+        window.open('https://metamask.io/download/', '_blank')
+        return
+      }
+
+      try {
+        const accounts = await ethereum.request({ method: 'eth_requestAccounts' })
+        
+        let txHash
+        
+        if (selectedToken === 'ETH') {
+          // ETH 转账
+          const amountInWei = '0x' + (parseFloat(amount) * Math.pow(10, 18)).toString(16)
+          
+          txHash = await ethereum.request({
+            method: 'eth_sendTransaction',
+            params: [{
+              from: accounts[0],
+              to: address,
+              value: amountInWei,
+            }],
+          })
+        } else {
+          // ERC-20 代币
+          const amountInSmallestUnit = (parseFloat(amount) * Math.pow(10, selectedDecimals)).toString(16).padStart(64, '0')
+          const addressPadded = address!.slice(2).padStart(64, '0')
+          const data = '0xa9059cbb' + addressPadded + amountInSmallestUnit
+          
+          txHash = await ethereum.request({
+            method: 'eth_sendTransaction',
+            params: [{
+              from: accounts[0],
+              to: selectedContract,
+              data: data,
+            }],
+          })
+        }
+        
+        alert(`✅ Payment sent!\n\nTransaction: ${txHash}\n\nView on Etherscan:\nhttps://etherscan.io/tx/${txHash}`)
+      } catch (error: any) {
+        console.error('Payment failed:', error)
+        if (error?.code === 4001) {
+          alert('❌ Transaction rejected')
+        } else {
+          alert('❌ Payment failed: ' + (error?.message || 'Unknown error'))
+        }
+      }
+    })
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initWeb3Payment)
+  } else {
+    initWeb3Payment()
+  }
+</script>
+
+<style>
+  .token-btn.active {
+    border-color: hsl(var(--primary));
+    background-color: hsl(var(--primary) / 0.1);
+  }
+</style>
+
