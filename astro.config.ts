@@ -104,6 +104,12 @@ export default defineConfig({
     contentIntellisense: true
   },
   vite: {
+    optimizeDeps: {
+      include: ['recaptcha-v3']
+    },
+    ssr: {
+      noExternal: ['recaptcha-v3']
+    },
     plugins: [
       //   visualizer({
       //     emitFile: true,

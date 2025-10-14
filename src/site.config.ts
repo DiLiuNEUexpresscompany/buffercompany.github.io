@@ -25,7 +25,7 @@ export const theme: ThemeUserConfig = {
   /** Set a logo image to show in the homepage. */
   logo: {
     src: 'src/assets/avatar.jpeg',
-    alt: 'Avatar'
+    alt: 'expresscompany'
   },
 
   // === Global configuration ===
@@ -132,9 +132,9 @@ export const integ: IntegrationUserConfig = {
   },
   // Comment system
   waline: {
-    enable: false,
+    enable: true,
     // Server service link
-    server: 'https://astro-theme-pure-waline.arthals.ink/',
+    server: 'https://blog-waline-snowy-gamma.vercel.app',
     // Refer https://waline.js.org/en/guide/features/emoji.html
     emoji: ['bmoji', 'weibo'],
     // Refer https://waline.js.org/en/reference/client/props.html

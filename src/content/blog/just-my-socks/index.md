@@ -7,8 +7,7 @@ tags:
   - VPS
   - 科学上网
   - 工具推荐
-draft: false
-comment: false
+comment: true
 heroImage:
   src: './just-my-socks-hero.jpg'
 ---
