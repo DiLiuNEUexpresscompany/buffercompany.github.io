@@ -32,7 +32,7 @@ heroImage:
 
 ## 项目结构
 
-```
+```bash
 rerank-r0/
 ├── prorank/                # 核心代码模块
 │   ├── config.py           # 配置加载
@@ -125,7 +125,7 @@ python prorank/trainer.py --config configs/stage_a.yaml
 
 `configs/stage_a.yaml` 中的关键配置如下：
 
-```
+```yaml
 # Training
 epochs: 1
 batch_size: 2
@@ -196,7 +196,7 @@ ppo:
 
 项目使用规则奖励模型评估输出：实现一个伪神经网络（继承 `nn.Module`），通过缓存 `input_ids` 与规则计算 reward 来适配 TRL 接口。相比训练昂贵的神经网络奖励模型，此方案更轻量；对于纯规则奖励的场景，后续可考虑切换 GRPO 以获得更高效率。
 
-```
+```bash
 TRL Trainer
     │
     ├─> 调用 model.backbone(input_ids)
