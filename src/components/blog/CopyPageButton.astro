@@ -1,0 +1,68 @@
+---
+import { Icon } from 'astro-pure/user'
+
+interface Props {
+  markdown?: string
+  fallbackSelector?: string
+  label?: string
+}
+
+const { markdown, fallbackSelector = '#content', label = 'Copy page' } = Astro.props as Props
+const buttonId = `copy-page-${Math.random().toString(36).slice(2, 10)}`
+const feedbackId = `copy-page-feedback-${Math.random().toString(36).slice(2, 10)}`
+---
+
+<button
+  id={buttonId}
+  type='button'
+  class='inline-flex items-center gap-x-1 rounded-lg border border-border bg-muted px-3 py-1.5 text-sm text-muted-foreground transition-all hover:bg-primary-foreground'
+  aria-live='polite'
+>
+  <Icon name='document' class='size-4' />
+  <span id={feedbackId}>{label}</span>
+</button>
+
+<script define:vars={{ buttonId, feedbackId, markdown, fallbackSelector }}>
+  const button = document.getElementById(buttonId)
+  const feedback = document.getElementById(feedbackId)
+
+  async function copyText() {
+    let textToCopy = typeof markdown === 'string' ? markdown : ''
+
+    if (!textToCopy && fallbackSelector) {
+      const fallbackElement = document.querySelector(fallbackSelector)
+      textToCopy = fallbackElement?.textContent?.trim() ?? ''
+    }
+
+    if (!textToCopy) {
+      updateFeedback('Nothing to copy')
+      setTimeout(() => updateFeedback('Copy page'), 2000)
+      return
+    }
+
+    if (!navigator.clipboard) {
+      updateFeedback('Unavailable')
+      setTimeout(() => updateFeedback('Copy page'), 2000)
+      return
+    }
+
+    try {
+      await navigator.clipboard.writeText(textToCopy)
+      updateFeedback('Copied')
+      setTimeout(() => updateFeedback('Copy page'), 2000)
+    } catch (error) {
+      console.error('[copy-page]', error)
+      updateFeedback('Failed')
+      setTimeout(() => updateFeedback('Copy page'), 2000)
+    }
+  }
+
+  function updateFeedback(message) {
+    if (feedback) {
+      feedback.textContent = message
+    }
+  }
+
+  button?.addEventListener('click', copyText)
+</script>
+

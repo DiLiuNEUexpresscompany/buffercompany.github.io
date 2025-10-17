@@ -9,6 +9,7 @@ import { Comment, MediumZoom } from 'astro-pure/advanced'
 import { ArticleBottom, Copyright, Hero, TOC } from 'astro-pure/components/pages'
 import PageLayout from '@/layouts/ContentLayout.astro'
 import { integ } from '@/site-config'
+import CopyPageButton from '@/components/blog/CopyPageButton.astro'
 
 interface Props {
   post: CollectionEntry<'blog'>
@@ -18,7 +19,7 @@ interface Props {
 }
 
 const {
-  post: { id, data },
+  post: { id, data, body },
   posts,
   headings,
   remarkPluginFrontmatter
@@ -50,7 +51,12 @@ const primaryColor = data.heroImage?.color ?? 'hsl(var(--primary) / var(--un-tex
 >
   {!!headings.length && <TOC {headings} slot='sidebar' />}
 
-  <Hero {data} {remarkPluginFrontmatter} slot='header' />
+  <div slot='header' class='relative'>
+    <Hero {data} {remarkPluginFrontmatter} />
+    <div id='copy-page-container' style='display: none;'>
+      <CopyPageButton markdown={body} />
+    </div>
+  </div>
 
   <slot />
 
@@ -67,3 +73,29 @@ const primaryColor = data.heroImage?.color ?? 'hsl(var(--primary) / var(--un-tex
 </PageLayout>
 
 {integ.mediumZoom.enable && <MediumZoom />}
+
+<script>
+  // Move copy button next to the article title
+  document.addEventListener('DOMContentLoaded', () => {
+    const titleElement = document.querySelector('.article-info h1')
+    const copyContainer = document.getElementById('copy-page-container')
+    
+    if (titleElement && copyContainer) {
+      // Create a flex wrapper for title + button
+      const wrapper = document.createElement('div')
+      wrapper.className = 'flex flex-wrap items-center justify-between gap-3 mt-4 sm:mt-6'
+      
+      // Get the title's classes and text
+      const titleClasses = titleElement.className
+      titleElement.className = titleClasses + ' flex-1 min-w-0'
+      
+      // Insert wrapper before title
+      titleElement.parentNode?.insertBefore(wrapper, titleElement)
+      
+      // Move title and button into wrapper
+      wrapper.appendChild(titleElement)
+      copyContainer.style.display = 'block'
+      wrapper.appendChild(copyContainer)
+    }
+  })
+</script>
