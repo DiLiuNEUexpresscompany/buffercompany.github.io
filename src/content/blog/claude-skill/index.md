@@ -10,6 +10,8 @@ tags:
   - LLM
   - 技术架构
 comment: true
+heroImage:
+  src: './skill-hero.jpg'
 ---
 
 ## 写在前面
